@@ -1,3 +1,4 @@
 const modify = 'modify'
-const add = 'add'
-const more = 'more'
+const some = 'some'
+const other = 'other'
+
