@@ -2,18 +2,21 @@ import React from "react";
 import { Image, Pressable, Text, View } from "react-native";
 import androidRipple from "../../utils/androidRipple";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
+import Octicons from "@expo/vector-icons/Octicons";
 import { useNavigation } from "@react-navigation/native";
 import { ExploreStackParams } from "../../routes/typesRoutes";
 import { ParamsInChat } from "../../routes/stacks/StackChanges";
 import { ChatEntity } from "../domain/chatEntitys";
 
-export const ChatPreview = ({chat}:{chat:any}) => {
+export const ChatPreview = ({chat}:{chat:ChatEntity}) => {
     const {navigate} = useNavigation<ParamsInChat>()
 
     const handlePressChat = (chat_id) => {
         navigate('inChat', {title:chat.title, chat_id})
     }
+
+    console.log(chat);
+    
     
   return ( 
 
@@ -27,8 +30,8 @@ export const ChatPreview = ({chat}:{chat:any}) => {
             <View className="flex-row flex-1 items-center gap-x-4">
               <View>
                 <Image
-                  width={55}
-                  height={55}
+                  width={52}
+                  height={52}
                   className="rounded-full"
                   style={{}}
                   source={{
@@ -43,28 +46,33 @@ export const ChatPreview = ({chat}:{chat:any}) => {
                     style={{width:'auto', fontSize:16 }}
                     numberOfLines={1}
                     ellipsizeMode="tail"
-                    className="font-bold "
+                    className="font-medium "
                   >
-                    {chat.title}
+                    {chat.product_sender}
                   </Text>
                   <View className="items-center">
-                    <Ionicons size={20} name="sync" />
+                    <Octicons size={20} name="sync" />
                   </View>
 
                   <Text
-                    style={{ width:'30%',fontSize:16 }} 
+                    style={{ fontSize:16 }} 
                     numberOfLines={1}
                     ellipsizeMode="tail"
-                    className="font-bold "
+                    className="font-medium flex-1 "
                   >
-                    {chat.title}
+                    {chat.product_receiver}
                   </Text>
+
+                  <Text  className="text-gray-600 text-xs">20:53</Text> 
+
                 </View>
 
-                <View className="">
-                  <Text className="">Hola, que te parece</Text>
+                <View className="mt-1">
+                  <Text className="text-gray-600">Hola, que te parece</Text>
                 </View>
               </View>
+
+              {/* RECUPERAR LA HORA DEL ULTIMO MENSAJE ENVIADO POR ALGUNO DEL CHAT !! */}
             </View>
 
             {/* <View className="justify-self-end">
@@ -72,6 +80,8 @@ export const ChatPreview = ({chat}:{chat:any}) => {
             </View> */}
           </View>
         </View>
+
+
       </View>
     </Pressable>
   );

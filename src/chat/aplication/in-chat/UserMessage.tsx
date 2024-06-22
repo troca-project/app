@@ -17,7 +17,7 @@ export const UserMessage = ({ message }) => {
   const { sendMessageTo, setMessages } = useMessages();
 
   const isOwnMessage = user.id === message.sender_id;
-
+  
   const formatDate = (timestamp) => {
     const date = new Date(timestamp);
     const hours = date.getHours().toString().padStart(2, "0");
@@ -34,19 +34,20 @@ export const UserMessage = ({ message }) => {
 
   return (
     <View className="">
-      <View className={`${isOwnMessage ? "items-end" : "items-start"} `}>
+      <View className={`${isOwnMessage ? "mr-1 items-end" : "ml-1 items-start"} `}>
         <View
-          className={`rounded-xl px-3  py-1  ${
-            isOwnMessage ? "bg-green-100" : "bg-gray-100 "
+          className={`rounded-xl px-3 py-1  ${
+            isOwnMessage ? "bg-indigo-200" : "bg-gray-100 "
           }`}
           style={{ elevation: 2 }}
         >
           <View
-            className={`flex-row flex-wrap  ${isOwnMessage ? "justify-end" : "justify-start"} `}
+          style={{maxWidth:200}}
+            className={`flex-row flex-wrap justify-end`}
           >
             <Text
               className=""
-              style={{ color: "#000", fontSize: 16, userSelect:'text', maxWidth:200 }}
+              style={{ color: "#000", fontSize: 16, userSelect:'text',  }}
             >
               {message.content}
             </Text>
@@ -75,9 +76,9 @@ export const UserMessage = ({ message }) => {
             </View>
           </View>
 
-          {/* <View 
-            className={`absolute ${isOwnMessage ? 'border-white' : 'border-l-indigo-100'}`}  
-            style={isOwnMessage ? styles.tailRight : styles.tailLeft}/>  */}
+           <View 
+            className={`absolute ${!isOwnMessage ? 'border-gray-100' : 'border-indigo-200'}`}  
+            style={!isOwnMessage ? styles.tailRight : styles.tailLeft}/> 
         </View>
 
         {message.status === "failed" ? (

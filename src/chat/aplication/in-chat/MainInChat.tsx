@@ -18,7 +18,6 @@ export const MainInChat = ({navigation, route}) => {
   return (
       <View className="h-full ">
         <LayoutMessages chat_id={chat_id}></LayoutMessages>
-        <SendMessage chat_id={chat_id}></SendMessage>
       </View>
   );
 };

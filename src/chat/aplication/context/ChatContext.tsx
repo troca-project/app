@@ -10,34 +10,33 @@ export const ChatProvider = ({ children }) => {
   const [messages, setMessages] = useState<MessageEntity[]>([]);
   const [chat_id, setChatId] = useState<number>(0);
 
+
+  const updateMessageStatus = (messageId, status) => {
+    setMessages((prevMessages) =>
+      prevMessages.map((msg) =>
+        msg.id === messageId ? { ...msg, status } : msg
+      )
+    );
+  };
+
   const sendMessageTo = async (message) => {
     const newMessage = {
       id: Date.now() * Math.random(),
       chat_id,
       content:message.trim(),
       status: "sending",
-      sender_id: 14,
+      sender_id: 14,//RECUPERAR EL USER ID DE ALGUN LADOOOO
       timestamp:Date.now()
     };
-
     if (!message) return;
     setMessages((prevMessages) => [...prevMessages, newMessage]);
-
     try {
       const response = await sendMessage(newMessage, chat_id);
       if (!response.ok) {
-        setMessages((prevMessages) =>
-          prevMessages.map((msg) =>
-            msg.id === newMessage.id ? { ...msg, status: "failed" } : msg
-          )
-        );
+        updateMessageStatus(message.id, 'failed')
       }
     } catch (error) {
-      setMessages((prevMessages) =>
-        prevMessages.map((msg) =>
-          msg.id === newMessage.id ? { ...msg, status: "failed" } : msg
-        )
-      );
+      updateMessageStatus(message.id, 'failed')
     }
 
   }
