@@ -18,7 +18,7 @@ export class ChatRepository implements ChatRepositoryDomain {
     getChat(chat_id: number) {
          return new Promise((resolve, reject)=>{
             resolve(
-                {id:4, title:'Cadena de bici', sender_id:1, receiver_id:15, accepted:true }
+                {id:4, title:'Cadena de bici', sender_id:1, product_sender:'Juego de llave tubo', product_receiver:'Cadena de bici', receiver_id:15, accepted:false }
             )
         })
     }

@@ -3,7 +3,7 @@ import { Product } from "../interfaces/Product";
 
 export type RootStackParams = {
   root: undefined;
-  inChat:any
+  onboarding:undefined;
 };
 
 export type HomeStackParams = {

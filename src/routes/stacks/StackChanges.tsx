@@ -37,6 +37,7 @@ export const StackChanges = () => {
           name="inChat"
           options={{}}
           component={MainInChat}
+          
         ></Stack.Screen>
       </Stack.Navigator>
   );

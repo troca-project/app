@@ -6,6 +6,7 @@ import { TabIcon } from "../bottom-tab/TabIcon";
 import { StackExplore } from "../explore/aplication/routes/StackExplore";
 import { MainChanges } from "../changes/aplication/MainChanges";
 import { StackChanges } from "./stacks/StackChanges";
+import ChatStack from "../chat/ChatStack";
 
 export const tabRoutes = [
     {
@@ -26,7 +27,6 @@ export const tabRoutes = [
         options:{
             tabBarIcon:({focused, color}:{focused:boolean, color:string}) => TabIcon({focused, color, icon:'search'} )
         },
-        initialParams:{ screen: 'explore' }
         
     },
     {
@@ -42,7 +42,7 @@ export const tabRoutes = [
     },
     {
         name:"cambios", 
-        component:StackChanges, 
+        component:ChatStack, 
         icon:'sync',
         options:{
             tabBarIcon:({focused, color}:{focused:boolean, color:string}) => TabIcon({focused, color, icon:'sync'})

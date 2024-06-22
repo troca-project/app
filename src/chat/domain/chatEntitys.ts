@@ -21,9 +21,10 @@ export interface PostMessageEntity {
 export interface ChatEntity{
   id: number;
   title:string;
-  room_id:number;
   sender_id: number;
   receiver_id: number;
+  product_sender: any;
+  product_receiver: any;
   accepted:boolean;
   created_at: Date;
 }

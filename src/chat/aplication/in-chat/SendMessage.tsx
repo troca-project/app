@@ -9,43 +9,16 @@ import { useMessages } from "../context/ChatContext";
 export const SendMessage = ({chat_id}) => {
   const [message, setMessage] = useState("");
   const [heightInput, setHeightInput] = useState(40); // Altura inicial
-  const {setMessages} = useMessages()
+  const {sendMessageTo} = useMessages()
 
   const handleSendMessage = async () => {
-    const newMessage = {
-      id: Date.now() * Math.random(),
-      chat_id,
-      content:message.trim(),
-      status: "sending",
-      sender_id: 14,
-      createdAt:5,
-      timestamp:Date.now()
-    };
-
     if (!message) return;
     setHeightInput(40)
-    setMessages((prevMessages) => [...prevMessages, newMessage]);
     setMessage("");
-
-    try {
-      const response = await sendMessage(newMessage, chat_id);
-      if (!response.ok) {
-        updateMessageStatus(newMessage.id, 'failed');
-      }
-
-    } catch (error) {
-      updateMessageStatus(newMessage.id, 'failed')
-    }
-
+    sendMessageTo(message)
   };
 
-  const updateMessageStatus = (messageId, status) => {
-    setMessages((prevMessages) =>
-      prevMessages.map((msg) =>
-        msg.id === messageId ? { ...msg, status } : msg
-      )
-    );
-  };
+ 
 
   return (
     <View className="px-3 pb-3 mt-1">

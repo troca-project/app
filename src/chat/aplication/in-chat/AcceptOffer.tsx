@@ -11,21 +11,21 @@ type AcceptOfferProps = {
 export const AcceptOffer: FC<AcceptOfferProps> = ({ chat }) => {
   const user_id = 10;
 
-  if (!chat || !chat.accepted || chat.sender_id === user_id) {
+  if (!chat || chat.accepted || chat.sender_id === user_id) {
     return null;
   } 
 
   return (
-    <View className="">
+    <View className=" bg-white">
       <View style={{}} className="py-4 px-3 border-y border-b-2 border-slate-300  justify-center items-center">
-        <Text className="mb-4">Amaru quiere intercambiar <Text className="font-bold">{chat.title}</Text></Text>
+        <Text className="mb-4">Quiere intercambiar <Text className="font-bold">{chat.product_sender}</Text></Text>
         <View className="flex-row flex-wrap justify-center gap-4">
-          <Pressable android_ripple={{...androidRipple, color:'white'}} className="py-2 flex-1 items-center rounded border" style={{backgroundColor:colors["green"], borderColor:colors.green}}>
+          <Pressable android_ripple={{...androidRipple, color:'white'}} className="py-2 flex-1 items-center rounded border border-red-600" style={{backgroundColor:colors["green"], borderColor:colors.green}}>
             <Text className="text-white font-medium">Aceptar</Text>
           </Pressable>
 
-          <Pressable android_ripple={androidRipple} className="py-2 flex-1 items-center rounded border border-red-700">
-            <Text className=" font-medium text-red-700">Rechazar</Text>
+          <Pressable android_ripple={androidRipple} className="py-2 flex-1 items-center rounded border ">
+            <Text className=" font-medium ">Rechazar</Text>
           </Pressable>
         </View>
       </View>

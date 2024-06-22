@@ -41,7 +41,7 @@ export const BlockOfProducts = ({
         {action && (
           <Pressable onPress={action} android_ripple={androidRipple}>
             <View className="py-3 px-3 flex-row items-center justify-between">
-              <Text style={{color:colors.green}} className="font-medium">{titleFooter}</Text>
+              <Text style={{color:colors.green}} className="font-boldººa">{titleFooter}</Text>
 
               <Ionicons color={colors.green} name="chevron-forward" size={25}></Ionicons>
             </View>
