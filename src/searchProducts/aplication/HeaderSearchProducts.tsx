@@ -12,6 +12,7 @@ import { ModalFilters } from "./ModalFilters";
 import { Badge, Tooltip } from 'react-native-paper';
 import { useFilters } from "./context/FiltersContext";
 import { StackNavigationProp } from "@react-navigation/stack";
+import { HomeStackParams } from "../../routes/typesRoutes";
 
 export const HeaderSearchProducts = ({
   route,
@@ -20,9 +21,7 @@ export const HeaderSearchProducts = ({
   route: Route<string>;
   navigation: StackNavigationProp<any>;
 }) => {
-  const {
-    params: { query, have, title, type },
-  } = getParamsRoute("search");
+  const { query, have, title, type } = getParamsRoute<HomeStackParams, 'search'>('search');
 
   console.log(query);
   

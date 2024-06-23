@@ -6,7 +6,6 @@ import { RootStack } from "../routes/RootStack";
 import { PaperProvider } from "react-native-paper";
 import React from "react";
 import { enableFreeze } from "react-native-screens";
-import { ChatProvider } from "../chat/aplication/context/ChatContext";
 
 export const Layout = () => {
   enableFreeze(true);

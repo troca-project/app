@@ -25,7 +25,7 @@ export const RootBottomTab = () => {
       >
         {tabRoutes.map((r) => (
           <Tab.Screen
-            options={r.options}
+            options={{...r.options}}
             name={r.name}
             key={r.name}
             component={r.component}

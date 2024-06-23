@@ -3,21 +3,19 @@ import { Image, Pressable, Text, View } from "react-native";
 import androidRipple from "../../utils/androidRipple";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import Octicons from "@expo/vector-icons/Octicons";
-import { useNavigation } from "@react-navigation/native";
+import { NavigationProp, useNavigation } from "@react-navigation/native";
 import { ExploreStackParams } from "../../routes/typesRoutes";
-import { ParamsInChat } from "../../routes/stacks/StackChanges";
 import { ChatEntity } from "../domain/chatEntitys";
+import { ChatStackNavigationProp, ChatStackParams, ParamsInChat } from "../domain/paramsRoutes";
 
 export const ChatPreview = ({chat}:{chat:ChatEntity}) => {
-    const {navigate} = useNavigation<ParamsInChat>()
 
-    const handlePressChat = (chat_id) => {
+    const {navigate} = useNavigation<ChatStackNavigationProp>()
+
+    const handlePressChat = (chat_id: number) => {
         navigate('inChat', {title:chat.title, chat_id})
     }
 
-    console.log(chat);
-    
-    
   return ( 
 
     <Pressable onPress={()=> handlePressChat(chat.id)} android_ripple={androidRipple}>

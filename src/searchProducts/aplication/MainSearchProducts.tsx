@@ -8,14 +8,14 @@ import { ResultSearchProducts } from "./ResultsSearchProducts";
 import { useEffect, useState } from "react";
 import { Product } from "../../interfaces/Product";
 import React from "react";
+import { getParamsRoute } from "../repository/getParamsRoute";
 
 export const MainSearchProducts = () => {
-  const { params } = getParamsRoute("search");
+  const { title, type, have, query } = getParamsRoute<HomeStackParams, 'search'>('search');
   const [allProducts, setAllProducts] = useState<Product[]>();
   const [productsFiltred, setProductsFiltred] = useState<Product[]>();
 
   useEffect(() => {
-    console.log(params);
 
     fetch("https://dummyjson.com/products") // ENDPOINT PARA BUSCAR POR LOS PARAMETROS EXPECTED, HAVE | CAMBIAR NOMBRES DE PARAMS
       .then((res) => res.json())
@@ -40,7 +40,7 @@ export const MainSearchProducts = () => {
         // );
 
       });
-  }, [params]);
+  }, [query]);
 
   return (
     <View className="flex-1 bg-white ">
@@ -56,10 +56,3 @@ export const MainSearchProducts = () => {
   );
 };
 
-function getParamsRoute<ScreenName extends keyof HomeStackParams>(
-  screenName: ScreenName
-) {
-  return useRoute<
-    NativeStackScreenProps<HomeStackParams, ScreenName>["route"]
-  >();
-}

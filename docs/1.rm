@@ -1,0 +1,27 @@
+== Requisitos
+
+*Debe tener*:
+- Navegación a través de las secciones: home, explorar, favoritos, chats, perfil, últimos movimientos, upload de productos y configuración.
+- Iconos representativos para cada sección en la barra de navegación.
+- Pantalla de inicio que actúe como el punto de entrada principal a la aplicación.
+- Funcionalidad de búsqueda en la sección de explorar.
+- Capacidad de guardar productos en la sección de favoritos.
+- Sistema de chat para la comunicación entre usuarios.
+- Interfaz para gestionar y actualizar el perfil del usuario.
+- Sección de configuración para personalizar las preferencias de la aplicación.
+- Registro de los últimos movimientos del usuario dentro de la aplicación.
+
+*Debería tener*:
+- Notificaciones push para actualizaciones importantes en las secciones de chat y últimos movimientos.
+- Animaciones y transiciones suaves entre las diferentes secciones.
+- Optimización para diferentes tamaños de pantalla y dispositivos móviles.
+
+*Podría tener*:
+- Integración con redes sociales para compartir contenido.
+- Personalización de la apariencia de la barra de navegación.
+- Soporte multilingüe para una audiencia global.
+
+*No tendrá esta vez*:
+- Funcionalidades avanzadas de análisis de datos y reportes.
+- Soporte para múltiples tipos de usuario o roles.
+
