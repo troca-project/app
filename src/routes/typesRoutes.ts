@@ -3,8 +3,18 @@ import { Product } from "../interfaces/Product";
 
 export type RootStackParams = {
   root: undefined;
-  onboarding:undefined;
+  externalRoutes:undefined
 };
+
+export type ExternalStackParams = {
+  onboarding:undefined;
+  inChat: {
+    chat_id: number;
+    title: string;
+  };
+};
+
+
 
 export type HomeStackParams = {
   home: undefined;

@@ -37,7 +37,7 @@ export const UserMessage = ({ message }) => {
       <View className={`${isOwnMessage ? "mr-1 items-end" : "ml-1 items-start"} `}>
         <View
           className={`rounded-xl px-3 py-1  ${
-            isOwnMessage ? "bg-indigo-200" : "bg-gray-100 "
+            isOwnMessage ? "bg-green-200" : "bg-gray-100 "
           }`}
           style={{ elevation: 2 }}
         >
@@ -77,7 +77,7 @@ export const UserMessage = ({ message }) => {
           </View>
 
            <View 
-            className={`absolute ${!isOwnMessage ? 'border-gray-100' : 'border-indigo-200'}`}  
+            className={`absolute ${!isOwnMessage ? 'border-gray-100' : 'border-green-200'}`}  
             style={!isOwnMessage ? styles.tailRight : styles.tailLeft}/> 
         </View>
 

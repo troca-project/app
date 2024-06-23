@@ -1,1 +1,1 @@
-import "nativewind/types"         
+import "nativewind/types" 

@@ -8,6 +8,7 @@ import { socket } from "../../../socket-io/socket";
 export const MainInChat = ({navigation, route}) => {
   const  {chat_id} = route.params
   const {setChatId} = useMessages()
+  
 
   useEffect(()=> {
     setChatId(chat_id)
@@ -16,7 +17,7 @@ export const MainInChat = ({navigation, route}) => {
   }, [chat_id])
   
   return (
-      <View className="h-full ">
+      <View className="flex-1 ">
         <LayoutMessages chat_id={chat_id}></LayoutMessages>
       </View>
   );

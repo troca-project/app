@@ -5,7 +5,6 @@ import { MainSearchProducts } from "../searchProducts/aplication/MainSearchProdu
 import { TabIcon } from "../bottom-tab/TabIcon";
 import { StackExplore } from "../explore/aplication/routes/StackExplore";
 import { MainChanges } from "../changes/aplication/MainChanges";
-import { StackChanges } from "./stacks/StackChanges";
 import ChatStack from "../chat/ChatStack";
 
 export const tabRoutes = [
